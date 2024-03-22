@@ -3,6 +3,7 @@ const  { program } = require('commander');
 const pkg = require('../package.json');
 program.version(pkg.version)
     .command('key','Manage API Key -- https://nomics.com')
+    .command('check','Check coin price Info')
     .parse(process.argv);
 
 console.log("Mohan is here");

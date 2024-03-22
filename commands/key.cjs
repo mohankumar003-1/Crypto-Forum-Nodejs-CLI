@@ -19,5 +19,33 @@ async function set() {
         }
 
 }
-module.exports = set ;
+
+async function show(){
+    try{
+        const keyManager = new KeyManager();
+        const key = await keyManager.getKey();
+        console.log("Current Api key" , key.yellow);
+        return key;
+    }
+    catch(error){
+        console.log('Hello from remove');
+    }
+
+}
+
+async function remove(){
+    try{
+        const keyManager = new KeyManager();
+        await keyManager.deleteKey();
+        console.log('Key Removed');
+        return ;
+
+    }
+    catch(err){
+        console.error(err.message.red);
+
+    }
+
+}
+module.exports = { set, show , remove} ;
 
